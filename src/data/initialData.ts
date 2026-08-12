@@ -12,7 +12,7 @@ export const initialCompanyProfileData: CompanyProfileData = {
   headOfficeAddress: "Jl. Raya Jember - Banyuwangi, Kec. Kabat, Kabupaten Banyuwangi, Jawa Timur 68461",
 
   heroImageUrl: "/images/altran_fleet_hero.jpg",
-  logoUrl: "/src/assets/images/altran_logo_1786547051420.jpg",
+  logoUrl: "/images/altran_logo.jpg",
 
   aboutHistory: "PT. ALTRAN GUNA USAHA memulai kiprah operasionalnya di industri jasa transportasi darat dan logistik sejak tahun 2017. Seiring dengan peningkatan kepercayaan pelanggan dan pertumbuhan kebutuhan angkutan industri nasional, perusahaan secara resmi berbadan hukum sebagai PT. ALTRAN GUNA USAHA pada tahun 2022.",
   
