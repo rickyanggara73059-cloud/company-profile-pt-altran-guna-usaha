@@ -81,7 +81,7 @@ export const initialCompanyProfileData: CompanyProfileData = {
       capacity: "S.d. 1.5 Ton",
       dimensions: "Panjang 2.3m - 2.5m | Lebar 1.6m | Tinggi 1.5m",
       description: "Armada lincah untuk pengiriman cepat intra-kota, pindahan skala sedang, dan kargo ritel dengan efisiensi tinggi.",
-      imageUrl: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "/images/pick-up.png",
       features: ["Lincah Rute Dalam Kota", "Pilihan Box Tutup / Bak Terbuka", "Loading Cepat", "Sangat Ekonomis"]
     },
     {
@@ -111,7 +111,7 @@ export const initialCompanyProfileData: CompanyProfileData = {
       capacity: "S.d. 25.0 Ton",
       dimensions: "Panjang Dek 9.5m - 12.0m | Lebar 2.5m",
       description: "Solusi utama pengangkutan struktur baja panjang, pipa industri, tiang pancang, mesin berat, dan kargo proyek berdimensi khusus.",
-      imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "/images/long-bet.png",
       features: ["Dek Rata Ekstra Panjang", "Kapasitas Beban Berat", "Penanganan Project Cargo", "Pengawalan Safety"]
     }
   ],
