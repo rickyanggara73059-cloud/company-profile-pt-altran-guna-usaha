@@ -1,11 +1,12 @@
-export interface FleetItem {
+﻿export interface FleetItem {
   id: string;
   name: string;
   category: string;
   capacity: string;
-  dimensions: string;
   description: string;
   imageUrl: string;
+  dimensions?: string;
+  gallery: string[];
   features: string[];
 }
 
@@ -58,22 +59,24 @@ export interface CompanyProfileData {
   incYear: string;
   phone: string;
   whatsappNumber: string;
+  whatsappNumber2: string;
   email: string;
   website?: string;
   headOfficeAddress: string;
-  
+
   aboutHistory: string;
   aboutFocus: string;
   vision: string;
   mission: string[];
-  
+
   services: ServiceItem[];
   fleets: FleetItem[];
   clients: ClientPartner[];
   advantages: AdvantageItem[];
   legalDocuments: LegalDocument[];
   branches: BranchLocation[];
-  
+
   heroImageUrl: string;
   logoUrl?: string;
 }
+

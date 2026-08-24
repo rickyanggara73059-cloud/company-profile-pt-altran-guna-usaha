@@ -11,7 +11,6 @@ import { LegalitySection } from './components/LegalitySection';
 import { BranchesSection } from './components/BranchesSection';
 import { ContactSection } from './components/ContactSection';
 import { EditProfileModal } from './components/EditProfileModal';
-import { PdfExportModal } from './components/PdfExportModal';
 
 const STORAGE_KEY = 'pt_altran_guna_usaha_profile_v2';
 
@@ -30,7 +29,6 @@ export default function App() {
 
   const [activeSection, setActiveSection] = useState<string>('cover');
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-  const [isPdfModalOpen, setIsPdfModalOpen] = useState<boolean>(false);
 
   // Save changes to localStorage
   const handleSaveData = (updated: CompanyProfileData) => {
@@ -57,14 +55,22 @@ export default function App() {
     handleSaveData({ ...profileData, fleets: updatedFleets });
   };
 
+  const handleDownloadPdf = () => {
+    const link = document.createElement('a');
+    link.href = '/documents/company-profile-altran.pdf';
+    link.download = 'Company-Profile-PT-Altran-Guna-Usaha.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 antialiased">
       {/* Fixed Navbar */}
       <Navbar
         data={profileData}
-        onOpenEdit={() => setIsEditModalOpen(true)}
-        onOpenPdfModal={() => setIsPdfModalOpen(true)}
+        onOpenPdfModal={handleDownloadPdf}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
@@ -73,7 +79,7 @@ export default function App() {
       <main>
         <CoverSection
           data={profileData}
-          onOpenPdfModal={() => setIsPdfModalOpen(true)}
+          onOpenPdfModal={handleDownloadPdf}
         />
 
         <AboutSection data={profileData} />
@@ -94,7 +100,7 @@ export default function App() {
 
         <ContactSection
           data={profileData}
-          onOpenPdfModal={() => setIsPdfModalOpen(true)}
+          onOpenPdfModal={handleDownloadPdf}
         />
       </main>
 
@@ -105,13 +111,6 @@ export default function App() {
         data={profileData}
         onSave={handleSaveData}
         onResetToDefault={handleResetData}
-      />
-
-      {/* PDF Export Modal */}
-      <PdfExportModal
-        isOpen={isPdfModalOpen}
-        onClose={() => setIsPdfModalOpen(false)}
-        data={profileData}
       />
     </div>
   );

@@ -280,16 +280,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                         className="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white"
                       />
                     </div>
-                    <div>
-                      <label className="block font-semibold text-slate-400 mb-1">Dimensi</label>
-                      <input
-                        type="text"
-                        value={fleet.dimensions}
-                        onChange={(e) => handleFleetChange(idx, 'dimensions', e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl p-2 text-white"
-                      />
-                    </div>
-                    <div>
+<div>
                       <label className="block font-semibold text-slate-400 mb-1">URL Foto Armada</label>
                       <input
                         type="text"
@@ -457,3 +448,4 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
     </div>
   );
 };
+

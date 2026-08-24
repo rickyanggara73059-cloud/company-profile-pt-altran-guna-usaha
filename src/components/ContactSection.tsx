@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { CompanyProfileData } from '../types';
 import { Phone, Mail, MapPin, MessageSquare, Clock, Send, ShieldCheck, Download, Award } from 'lucide-react';
 
@@ -37,23 +37,43 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ data, onOpenPdfM
 
               {/* Contact Channels */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                
-                {/* Phone / WhatsApp Card */}
+
+                {/* WhatsApp 1 */}
                 <a
                   href={`https://wa.me/${data.whatsappNumber}?text=${waMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 transition-all flex items-center gap-4 group"
+                  className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 transition-all flex items-center gap-4 group"
                 >
                   <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform">
                     <MessageSquare className="w-6 h-6" />
                   </div>
                   <div>
                     <span className="text-[10px] uppercase font-bold text-slate-400 block">
-                      Telepon / WhatsApp
+                      WhatsApp 1
                     </span>
-                    <span className="text-sm font-extrabold text-white group-hover:text-amber-400 transition-colors">
-                      {data.phone}
+                    <span className="text-sm font-extrabold text-white group-hover:text-emerald-400 transition-colors">
+                      0811 2222 6808
+                    </span>
+                  </div>
+                </a>
+
+                {/* WhatsApp 2 */}
+                <a
+                  href={`https://wa.me/${data.whatsappNumber2}?text=${waMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 transition-all flex items-center gap-4 group"
+                >
+                  <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">
+                      WhatsApp 2
+                    </span>
+                    <span className="text-sm font-extrabold text-white group-hover:text-emerald-400 transition-colors">
+                      0813 4000 0879
                     </span>
                   </div>
                 </a>
@@ -110,16 +130,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ data, onOpenPdfM
                   className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all"
                 >
                   <MessageSquare className="w-5 h-5" />
-                  <span>Chat WhatsApp Langsung</span>
+                  <span>WhatsApp 1 — 0811 2222 6808</span>
                 </a>
 
-                <button
-                  onClick={onOpenPdfModal}
+                <a
+                  href={`https://wa.me/${data.whatsappNumber2}?text=${waMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                  <span>WhatsApp 2 — 0813 4000 0879</span>
+                </a>
+
+                <a
+                  href="/documents/company-profile-altran.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-3.5 px-5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all"
                 >
                   <Download className="w-5 h-5" />
-                  <span>Cetak / Download PDF Profile</span>
-                </button>
+                  <span>Download Company Profile PDF</span>
+                </a>
               </div>
 
               <div className="pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-2">
@@ -154,3 +186,4 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ data, onOpenPdfM
     </section>
   );
 };
+

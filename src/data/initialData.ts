@@ -1,4 +1,4 @@
-import { CompanyProfileData } from '../types';
+﻿import { CompanyProfileData } from '../types';
 
 export const initialCompanyProfileData: CompanyProfileData = {
   companyName: "PT. ALTRAN GUNA USAHA",
@@ -7,12 +7,13 @@ export const initialCompanyProfileData: CompanyProfileData = {
   incYear: "2022",
   phone: "+62 811-2222-6808",
   whatsappNumber: "6281122226808",
+  whatsappNumber2: "6281340000879",
   email: "altran.gunausaha@gmail.com",
-  website: "www.altrangunausaha.co.id",
+  website: "www.altran.id",
   headOfficeAddress: "Jl. Raya Jember - Banyuwangi, Kec. Kabat, Kabupaten Banyuwangi, Jawa Timur 68461",
 
-  heroImageUrl: "/images/altran_fleet_hero.jpg",
-  logoUrl: "/images/altran_logo.jpg",
+  heroImageUrl: "/images/hero-trailer.jpeg",
+  logoUrl: "/images/altran-logo.png",
 
   aboutHistory: "PT. ALTRAN GUNA USAHA memulai kiprah operasionalnya di industri jasa transportasi darat dan logistik sejak tahun 2017. Seiring dengan peningkatan kepercayaan pelanggan dan pertumbuhan kebutuhan angkutan industri nasional, perusahaan secara resmi berbadan hukum sebagai PT. ALTRAN GUNA USAHA pada tahun 2022.",
   
@@ -76,46 +77,89 @@ export const initialCompanyProfileData: CompanyProfileData = {
   fleets: [
     {
       id: "fleet-1",
-      name: "Pickup Box & Open Deck",
+      name: "Pickup",
       category: "Light Freight",
-      capacity: "S.d. 1.5 Ton",
-      dimensions: "Panjang 2.3m - 2.5m | Lebar 1.6m | Tinggi 1.5m",
-      description: "Armada lincah untuk pengiriman cepat intra-kota, pindahan skala sedang, dan kargo ritel dengan efisiensi tinggi.",
-      imageUrl: "/images/pick-up.png",
-      features: ["Lincah Rute Dalam Kota", "Pilihan Box Tutup / Bak Terbuka", "Loading Cepat", "Sangat Ekonomis"]
+      capacity: "Max. 1 Ton",
+      description: "Armada pickup yang praktis untuk pengiriman barang ringan, distribusi dalam kota, kebutuhan operasional, dan mobilitas logistik cepat.",
+      imageUrl: "/images/fleet/additional/pickup-01.jpeg",
+      gallery: ["/images/fleet/additional/pickup-02.jpeg",
+                "/images/fleet/additional/pick-up-03.jpeg",
+      ],
+      features: ["Lincah Untuk Dalam Kota", "Efisien Untuk Muatan Ringan", "Mudah Menjangkau Area Sempit", "Cocok Untuk Distribusi Cepat"]
     },
     {
       id: "fleet-2",
-      name: "Colt Diesel (CDE & CDD)",
+      name: "CDD Open Deck",
       category: "Medium Duty",
-      capacity: "4.0 Ton - 8.0 Ton",
-      dimensions: "Panjang 4.3m - 6.2m | Lebar 2.0m | Tinggi 2.1m",
-      description: "Truk pekerja keras ideal untuk distribusi barang pabrikan, komoditas pertanian, bahan bangunan, dan kargo antar wilayah.",
-      imageUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80",
-      features: ["Tersedia Box & Bak Terbuka", "Daya Angkut Sedang-Tinggi", "Cocok Jalan Antar Kota", "Terpercaya Sejak Lama"]
+      capacity: "Max. 5 Ton",
+      description: "Armada CDD dengan bak terbuka untuk pengangkutan barang, material, dan muatan yang membutuhkan proses loading serta unloading yang fleksibel.",
+      imageUrl: "/images/fleet/additional/cdd-open-deck-01.jpeg",
+      gallery: [
+  "/images/fleet/additional/cdd-open-deck-02.jpeg",
+  "/images/fleet/additional/cdd-open-deck-03.jpeg",
+  "/images/fleet/additional/cdd-open-deck-04.jpeg"
+],
+      features: ["Bak Terbuka", "Kapasitas Hingga 5 Ton", "Loading Fleksibel", "Cocok Untuk Distribusi Antar Kota"]
     },
     {
       id: "fleet-3",
-      name: "Fuso Tronton / Heavy Freight",
-      category: "Heavy Duty",
-      capacity: "12.0 Ton - 20.0 Ton",
-      dimensions: "Panjang 7.5m - 9.6m | Lebar 2.4m | Tinggi 2.5m",
-      description: "Armada tonase besar dirancang khusus untuk memenuhi volume tinggi bahan baku industri, hasil tambang, dan muatan kontainer.",
-      imageUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
-      features: ["Volume Kargo Ekstra Luas", "Chassis Kokoh & Tangguh", "Jangkauan Jalur Antar Pulau", "Sistem Pengikat Cargo Standar"]
+      name: "CDD Box",
+      category: "Medium Duty",
+      capacity: "Max. 5 Ton",
+      description: "Armada CDD box untuk pengiriman barang yang membutuhkan perlindungan dari cuaca dan lingkungan selama perjalanan.",
+      imageUrl: "/images/fleet/additional/cdd-box-01.jpeg",
+      gallery: ["/images/fleet/additional/cdd-box-02.jpeg",],
+      features: ["Box Tertutup", "Kapasitas Hingga 5 Ton", "Perlindungan Dari Cuaca", "Cocok Untuk Cargo Umum"]
     },
     {
       id: "fleet-4",
-      name: "Long Bed & Flatbed Heavy Truck",
+      name: "Long Bed",
+      category: "Heavy Duty",
+      capacity: "Max. 10 Ton",
+      description: "Armada long bed dengan area muatan panjang untuk pengangkutan material, equipment, dan barang berdimensi panjang.",
+      imageUrl: "/images/fleet/additional/long-bed-01.jpeg",
+      gallery: [
+        "/images/fleet/additional/long-bet-02.jpeg",
+        "/images/fleet/additional/long-bet-03.jpeg",
+        "/images/fleet/additional/long-bet-04.jpeg",
+        "/images/fleet/additional/long-bet-05.jpeg",
+        "/images/fleet/additional/long-bet-06.jpeg",
+        "/images/fleet/additional/long-bet-07.jpeg",
+        "/images/fleet/additional/long-bet-08.jpeg",
+        "/images/fleet/additional/long-bet-09.jpeg",
+        "/images/fleet/additional/long-bet-10.jpeg",
+        "/images/fleet/additional/long-bet-11.jpeg",
+        "/images/fleet/additional/long-bet-12.jpeg",
+        "/images/fleet/additional/long-bet-13.jpeg",
+        "/images/fleet/additional/long-bet-14.jpeg",
+        "/images/fleet/additional/long-bet-15.jpeg",
+        "/images/fleet/additional/long-bet-16.jpeg",
+        "/images/fleet/additional/long-bet-17.jpeg",
+        "/images/fleet/additional/long-bet-18.jpeg"
+      ],
+      features: ["Dek Muatan Panjang", "Kapasitas Hingga 10 Ton", "Cocok Untuk Muatan Berdimensi Panjang", "Fleksibel Untuk Kargo Proyek"]
+    },
+    {
+      id: "fleet-5",
+      name: "Trailer",
       category: "Project & Heavy Haulage",
-      capacity: "S.d. 25.0 Ton",
-      dimensions: "Panjang Dek 9.5m - 12.0m | Lebar 2.5m",
-      description: "Solusi utama pengangkutan struktur baja panjang, pipa industri, tiang pancang, mesin berat, dan kargo proyek berdimensi khusus.",
-      imageUrl: "/images/long-bet.png",
-      features: ["Dek Rata Ekstra Panjang", "Kapasitas Beban Berat", "Penanganan Project Cargo", "Pengawalan Safety"]
+      capacity: "Max. 50 Ton",
+      description: "Armada trailer untuk pengangkutan material, equipment, dan cargo berat dalam kebutuhan logistik proyek serta heavy haulage.",
+      imageUrl: "/images/fleet/additional/trailer-50ton-01.jpeg",
+      gallery: ["/images/fleet/additional/trailer-02.jpeg", "/images/fleet/additional/trailer-03.jpeg"],
+      features: ["Kapasitas Hingga 50 Ton", "Heavy Cargo", "Cocok Untuk Project Cargo", "Area Muatan Besar"]
+    },
+    {
+      id: "fleet-6",
+      name: "Lowboy",
+      category: "Project & Heavy Haulage",
+      capacity: "40 - 80 Ton",
+      description: "Armada lowboy untuk pengangkutan alat berat seperti excavator, dump truck, dan equipment konstruksi dengan kebutuhan tonase tinggi.",
+      imageUrl: "/images/fleet/additional/lowboy-01.jpeg",
+      gallery: ["/images/fleet/additional/lowboy-02.jpeg", "/images/fleet/additional/lowboy-03.jpeg", "/images/fleet/additional/lowboy-04.jpeg", "/images/fleet/additional/lowboy-05.jpeg"],
+      features: ["Kapasitas 40 - 80 Ton", "Pengangkutan Alat Berat", "Deck Rendah", "Cocok Untuk Heavy Haulage"]
     }
   ],
-
   clients: [
     { id: "cl-1", name: "PT Semen Indonesia (Persero) Tbk", industry: "Manufaktur Semen & Material", location: "Gresik / Jawa Timur" },
     { id: "cl-2", name: "PT Astra International Tbk", industry: "Otomotif & Alat Berat", location: "Jakarta / Nasional" },
@@ -235,3 +279,19 @@ export const initialCompanyProfileData: CompanyProfileData = {
     }
   ]
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

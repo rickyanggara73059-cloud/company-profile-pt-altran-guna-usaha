@@ -1,178 +1,199 @@
 import React from 'react';
+import {
+  Truck,
+  Download,
+  ArrowRight,
+  CalendarDays,
+  UsersRound,
+  ShieldCheck,
+  Weight,
+  Container,
+} from 'lucide-react';
 import { CompanyProfileData } from '../types';
-import { Shield, Truck, MapPin, Award, ArrowDown, Download, CheckCircle2 } from 'lucide-react';
 
 interface CoverSectionProps {
   data: CompanyProfileData;
   onOpenPdfModal: () => void;
 }
 
-export const CoverSection: React.FC<CoverSectionProps> = ({ data, onOpenPdfModal }) => {
+const FleetStat = ({
+  icon: Icon,
+  value,
+  label,
+  description,
+}: {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+  description: string;
+}) => (
+  <div className="flex items-start gap-4 px-5 py-4 lg:px-6">
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 text-amber-400">
+      <Icon className="h-6 w-6" strokeWidth={1.8} />
+    </div>
+
+    <div className="min-w-0">
+      <div className="text-3xl font-black leading-none tracking-tight text-white">
+        {value}
+      </div>
+      <div className="mt-1 text-sm font-extrabold text-amber-400">
+        {label}
+      </div>
+      <div className="mt-1 text-xs leading-relaxed text-slate-300">
+        {description}
+      </div>
+    </div>
+  </div>
+);
+
+const FleetItem = ({
+  icon: Icon,
+  name,
+  capacity,
+}: {
+  icon: React.ElementType;
+  name: string;
+  capacity: string;
+}) => (
+  <div className="flex min-w-[170px] items-center gap-3 px-4 py-3">
+    <Icon className="h-7 w-7 shrink-0 text-amber-400" strokeWidth={1.8} />
+    <div>
+      <div className="text-sm font-extrabold text-white">{name}</div>
+      <div className="mt-0.5 text-xs text-slate-300">{capacity}</div>
+    </div>
+  </div>
+);
+
+export const CoverSection: React.FC<CoverSectionProps> = ({
+  data,
+  onOpenPdfModal,
+}) => {
   return (
-    <section id="cover" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-slate-950 text-white">
-      {/* Background Gradient & Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black opacity-90"></div>
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
+    <section
+      id="cover"
+      className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden bg-slate-950 text-white"
+    >
+      {/* Full-bleed hero photo */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero-altran-hd.jpg"
+          alt="Armada PT. ALTRAN GUNA USAHA"
+          className="absolute left-0 top-0 h-[320px] w-full object-contain object-top sm:inset-0 sm:h-full sm:w-full sm:object-cover sm:object-[66%_center]"
+        />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Document Header Tag */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold tracking-wider uppercase">
-            <Award className="w-3.5 h-3.5" />
-            <span>Official Company Profile Document</span>
+      {/* Cinematic overlays: keep the truck visible while protecting the text */}
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(2,8,23,0.92)_0%,rgba(2,8,23,0.78)_28%,rgba(2,8,23,0.38)_52%,rgba(2,8,23,0.08)_78%,rgba(2,8,23,0.16)_100%)]" />
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(0deg,rgba(2,8,23,0.82)_0%,rgba(2,8,23,0.18)_38%,rgba(2,8,23,0.06)_72%,rgba(2,8,23,0.30)_100%)]" />
+      <div className="absolute inset-0 z-10 bg-slate-950/0" />
+
+      <div className="relative z-20 mx-auto flex min-h-[calc(100vh-72px)] w-full max-w-[1700px] flex-col justify-end px-5 pb-5 pt-20 sm:px-8 lg:px-12 lg:pb-6">
+        {/* Main hero content */}
+        <div className="max-w-3xl pb-8 lg:pb-10">
+          <div className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.28em] text-amber-400 sm:text-sm">
+            <span className="h-1 w-8 rounded-full bg-amber-400" />
+            Transportation &amp; Logistics Solutions
           </div>
-          <div className="text-xs text-slate-400 font-medium">
-            PT. ALTRAN GUNA USAHA &copy; {new Date().getFullYear()}
+
+          <h1 className="max-w-4xl text-4xl font-black uppercase leading-[0.92] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]">
+            <span className="block">PT. ALTRAN</span>
+            <span className="block text-amber-400">GUNA USAHA</span>
+          </h1>
+
+          <div className="mt-5 h-1.5 w-20 rounded-full bg-amber-400" />
+
+          <p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+            Solusi transportasi darat untuk kebutuhan{' '}
+            <strong className="font-extrabold text-white">general cargo</strong>,{' '}
+            <strong className="font-extrabold text-white">project cargo</strong>,
+            dan <strong className="font-extrabold text-white">heavy haulage</strong>{' '}
+            dengan armada prima dan layanan terpercaya.
+          </p>
+
+          <div className="mt-5 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-2 text-sm text-slate-200 sm:grid-cols-2">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-amber-400" />
+              <span>Armada lengkap &amp; siap beroperasi</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-amber-400" />
+              <span>Legalitas PT resmi</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-amber-400" />
+              <span>Standar keselamatan &amp; K3</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-amber-400" />
+              <span>Jawa • Bali • Kalimantan</span>
+            </div>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href="#fleet"
+              className="inline-flex items-center gap-3 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-black text-slate-950 shadow-[0_10px_35px_rgba(251,191,36,0.28)] transition hover:bg-amber-300"
+            >
+              <Truck className="h-5 w-5" />
+              Lihat Armada
+              <ArrowRight className="h-4 w-4" />
+            </a>
+
+            <button
+              type="button"
+              onClick={onOpenPdfModal}
+              className="inline-flex items-center gap-3 rounded-xl border border-white/25 bg-slate-950/55 px-6 py-3.5 text-sm font-black text-white backdrop-blur-md transition hover:border-amber-400/50 hover:bg-slate-950/75"
+            >
+              <Download className="h-5 w-5" />
+              Download Profile
+            </button>
           </div>
         </div>
 
-        {/* Main Cover Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Logo Badge */}
-            <div className="flex items-center gap-4 p-2 pr-5 rounded-2xl bg-slate-900/80 border border-slate-800 w-fit">
-              {data.logoUrl ? (
-                <img
-                  src={data.logoUrl}
-                  alt={data.companyName}
-                  referrerPolicy="no-referrer"
-                  className="w-14 h-14 object-contain rounded-xl bg-white p-1 border border-amber-500/30 shadow-md"
-                />
-              ) : (
-                <div className="w-14 h-14 rounded-xl bg-amber-500 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg">
-                  AGU
-                </div>
-              )}
-              <div>
-                <span className="text-xs uppercase font-extrabold tracking-widest text-amber-400 block">
-                  Logistik & Transportasi Darat
-                </span>
-                <span className="text-sm font-bold text-slate-200">
-                  Resmi Sejak 2017 &bull; PT sejak 2022
-                </span>
-              </div>
-            </div>
-
-            {/* Main Title */}
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-                {data.companyName}
-              </h1>
-              <p className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
-                {data.tagline}
-              </p>
-            </div>
-
-            {/* Subtitle Description */}
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-              Mitra terpercaya penyedia layanan <strong className="text-white font-semibold">transportasi darat, kargo proyek, dan distribusi logistik</strong> terintegrasi dengan jaringan armada prima di wilayah Jawa, Bali, dan Kalimantan.
-            </p>
-
-            {/* Key Feature Bullets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-300">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>Armada Lengkap (Pickup, CDD, Fuso, Longbed)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>Legalitas PT Resmi & NPWP Terverifikasi</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>Kantor Banyuwangi, Balikpapan & Depok</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>Dipercaya 12+ Korporasi Nasional</span>
-              </div>
-            </div>
-
-            {/* Call to action buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <button
-                onClick={onOpenPdfModal}
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-extrabold shadow-lg shadow-amber-500/25 flex items-center gap-2 transition-all transform active:scale-95"
-              >
-                <Download className="w-5 h-5" />
-                <span>Download PDF Profile</span>
-              </button>
-
-              <a
-                href="#about"
-                className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-bold border border-slate-700 flex items-center gap-2 transition-all"
-              >
-                <span>Eksplor Profil</span>
-                <ArrowDown className="w-4 h-4 text-amber-400" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Fleet Hero Image Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl bg-slate-900 group">
-              <img
-                src={data.heroImageUrl}
-                alt="Armada PT ALTRAN GUNA USAHA"
-                referrerPolicy="no-referrer"
-                className="w-full h-[360px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-
-              {/* Bottom Badge Info */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
-                <div className="flex items-center justify-between text-xs text-amber-400 font-bold tracking-wider uppercase">
-                  <span className="flex items-center gap-1">
-                    <Truck className="w-4 h-4" /> Armada Komersial Siap Tempur
-                  </span>
-                  <span>100% Verified Fleet</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-800">
-                  <p className="text-xs text-slate-300 font-medium leading-normal">
-                    "Siap melayani kargo industri, pengiriman pabrik, hingga project cargo lintas pulau dengan jaminan aman & tepat waktu."
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Stat Pill */}
-            <div className="absolute -bottom-5 -left-5 sm:left-4 bg-amber-500 text-slate-950 p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-amber-300">
-              <Shield className="w-8 h-8 flex-shrink-0" />
-              <div>
-                <p className="text-xs font-black uppercase tracking-wider">Garansi Keamanan</p>
-                <p className="text-sm font-extrabold">Standar K3 & Pengawalan</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Quick Highlights Bar */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-slate-800">
-          <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 text-center">
-            <p className="text-2xl sm:text-3xl font-black text-amber-400">{data.foundedYear}</p>
-            <p className="text-xs text-slate-400 font-medium mt-1">Awal Pengalaman Operasional</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 text-center">
-            <p className="text-2xl sm:text-3xl font-black text-amber-400">{data.incYear}</p>
-            <p className="text-xs text-slate-400 font-medium mt-1">Berbadan Hukum PT Resmi</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 text-center">
-            <p className="text-2xl sm:text-3xl font-black text-amber-400">3 Kantor</p>
-            <p className="text-xs text-slate-400 font-medium mt-1">Banyuwangi, Balikpapan, Depok</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 text-center">
-            <p className="text-2xl sm:text-3xl font-black text-amber-400">{data.clients.length}+ Mitra</p>
-            <p className="text-xs text-slate-400 font-medium mt-1">Perusahaan Industri Terkemuka</p>
+        {/* Bottom company metrics */}
+        <div className="overflow-hidden rounded-2xl border border-white/15 bg-slate-950/80 shadow-2xl backdrop-blur-md">
+          <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+            <FleetStat
+              icon={CalendarDays}
+              value={`${data.foundedYear}+`}
+              label="Tahun Pengalaman"
+              description="Berpengalaman di bidang transportasi & logistik"
+            />
+            <FleetStat
+              icon={UsersRound}
+              value={`${data.clients.length}+`}
+              label="Mitra Korporasi"
+              description="Telah dipercaya berbagai perusahaan terkemuka"
+            />
+            <FleetStat
+              icon={ShieldCheck}
+              value="K3"
+              label="Keselamatan Utama"
+              description="Standar keselamatan kerja dan armada terjamin"
+            />
+            <FleetStat
+              icon={Weight}
+              value="50 Ton"
+              label="Kapasitas Armada"
+              description="Mampu mengangkut beban hingga 50 Ton"
+            />
           </div>
         </div>
 
+        {/* Fleet capacity strip */}
+        <div className="mt-3 overflow-x-auto rounded-2xl border border-white/15 bg-slate-950/85 shadow-2xl backdrop-blur-md">
+          <div className="flex min-w-max divide-x divide-white/10">
+            <FleetItem icon={Truck} name="Pickup" capacity="Max. 1 Ton" />
+            <FleetItem icon={Truck} name="CDD Box" capacity="Max. 5 Ton" />
+            <FleetItem icon={Truck} name="Long Bed" capacity="Max. 10 Ton" />
+            <FleetItem icon={Truck} name="Lowboy" capacity="Max. 50 Ton" />
+            <FleetItem icon={Truck} name="Trailer" capacity="Max. 50 Ton" />
+            <FleetItem icon={Container} name="Heavy Duty" capacity="Project Cargo" />
+          </div>
+        </div>
       </div>
     </section>
   );
 };
+
+
